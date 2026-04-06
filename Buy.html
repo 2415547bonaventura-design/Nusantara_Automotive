@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Purchase | Nusantara Automotives</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<div class="top-gradient"></div>
+<div class="top-gradient"></div>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+  <div class="menu-btn" onclick="openMenu()">☰</div>
+
+  <div class="logo">
+    <span>NUSANTARA AUTOMOTIVES</span>
+  </div>
+
+</header>
+
+<!--Sidebar menu-->
+<div id="sidebar" class="sidebar">
+
+  <span class="close-btn" onclick="closeMenu()">&times;</span>
+
+  <a href="index.html">Home</a>
+  <a href="models.html">Models Overview</a>
+  <a href="Buy.html">Purchase</a>
+  <a href="About.html">About</a>
+
+</div>
+
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+<script>
+function openMenu() {
+  document.getElementById("sidebar").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
+}
+
+function closeMenu() {
+  document.getElementById("sidebar").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
+}
+</script>
+
+<section class="purchase">
+
+  <div class="left">
+    <h1>Configure Your Car</h1>
+    <p>Select your model and personalize your Nusantara supercar.</p>
+
+    <img id="car-image" src="foto mobil/GARUDA/Garuda Gold/garuda r garuda gold DD.png">
+  </div>
+
+  <div class="right">
+
+    <form>
+
+      <label>Full Name</label>
+      <input type="text" placeholder="Your name" required>
+
+      <label>Email</label>
+      <input type="email" placeholder="your@email.com" required>
+
+      <label>Phone Number</label>
+      <input type="tel" id="phone" placeholder="08xxxxxxxxxx" required>
+
+      <label>Address</label>
+      <textarea placeholder="Enter your full address" required></textarea>
+
+      <label>Select Model</label>
+      <select id="model">
+        <option value="bima">Bima</option>
+        <option value="garuda" selected>Garuda</option>
+        <option value="keris">Keris</option>
+        <option value="naga">Naga</option>
+        <option value="rajawali">Rajawali</option>
+        <option value="samudra">Samudra</option>
+      </select>
+
+      <label>Color</label>
+      <select id="color"></select>
+
+      <label>Additional Notes</label>
+      <textarea placeholder="Additional Notes"></textarea>
+
+      <button type="submit">SUBMIT REQUEST</button>
+
+    </form>
+
+  </div>
+
+</section>
+
+<script>
+/* PHONE VALIDATION (ONLY NUMBERS) */
+document.getElementById("phone").addEventListener("input", function() {
+  this.value = this.value.replace(/[^0-9]/g, '');
+});
+
+/* ELEMENTS */
+const modelSelect = document.getElementById("model");
+const colorSelect = document.getElementById("color");
+const carImage = document.getElementById("car-image");
+
+/* IMAGE DATABASE */
+const images = {
+
+  bima: {
+    red: "foto mobil/BIMA/Bima Crimson Red/bima crimson red DD.png",
+    black: "foto mobil/BIMA/Java Obsidian Black/bima java obsidian black DD.png",
+    green: "foto mobil/BIMA/Kalimantan Iron Green/bima kalimantan iron green DD.png",
+    silver: "foto mobil/BIMA/Storm Silver Metalic/bima storm silver DD.png"
+  },
+
+  garuda: {
+    gold: "foto mobil/GARUDA/Garuda Gold/garuda r garuda gold DD.png",
+    red: "foto mobil/GARUDA/Majapahit Red/garuda r majapahit red DD.png",
+    black: "foto mobil/GARUDA/Volcanic Black/garuda r volcanic black DD.png",
+    green: "foto mobil/GARUDA/Emerald Borneo/garuda r emerald borneo DD.png"
+  },
+
+  keris: {
+    black: "foto mobil/KERIS/volcanic black/Volcanic Black diag.png",
+    red: "foto mobil/KERIS/majapahit red/Majapahit Red diag.png",
+    green: "foto mobil/KERIS/emerald borneo/Emerald Borneo diag.png",
+    silver: "foto mobil/KERIS/silver pamor/Silver Pamor diag.png"
+  },
+
+  naga: {
+    red: "foto mobil/NAGA/dragon blood red/Dragon Blood Red diag.png",
+    green: "foto mobil/NAGA/Emerald Dragon Green/Emerald Dragon Green diag.png",
+    black: "foto mobil/NAGA/obsidian track black/Obsidian Track Black diag.png",
+    silver: "foto mobil/NAGA/titanium silver storm/Titanium Silver Storm diag.png",
+    orange: "foto mobil/NAGA/volcanic lava orange/Volcanic Lava Orange diag.png"
+  },
+
+  rajawali: {
+    green: "foto mobil/RAJAWALI/borneo emerald green/borneo emerald green diag.png",
+    red: "foto mobil/RAJAWALI/majapahit red/Majapahit Red diag.png",
+    black: "foto mobil/RAJAWALI/midnight black/Midnight Black diag.png",
+    gold: "foto mobil/RAJAWALI/royal garuda gold/Royal Garuda Gold diag.png"
+  },
+
+  samudra: {
+    blue: "foto mobil/SAMUDRA/Deep Ocean Blue/samudra deep ocean blue DD.png",
+    green: "foto mobil/SAMUDRA/Emerald Sea Green/samudra emerald green DD.png",
+    white: "foto mobil/SAMUDRA/Pearl Coral White/samudra pearl coral white DD.png",
+    black: "foto mobil/SAMUDRA/Volcanic Black/samudra volcanic black DD.png"
+  }
+
+};
+
+/* UPDATE COLOR OPTIONS BASED ON MODEL */
+function updateColorOptions() {
+  const model = modelSelect.value;
+
+  // clear dropdown
+  colorSelect.innerHTML = "";
+
+  const availableColors = images[model];
+
+  for (let color in availableColors) {
+    const option = document.createElement("option");
+    option.value = color;
+    option.textContent = color.charAt(0).toUpperCase() + color.slice(1);
+    colorSelect.appendChild(option);
+  }
+
+  updateCar(); // langsung update gambar
+}
+
+/* UPDATE IMAGE */
+function updateCar() {
+  const model = modelSelect.value;
+  const color = colorSelect.value;
+
+  if (images[model] && images[model][color]) {
+    carImage.src = images[model][color];
+  }
+}
+
+/* EVENTS */
+modelSelect.addEventListener("change", updateColorOptions);
+colorSelect.addEventListener("change", updateCar);
+
+/* INIT */
+updateColorOptions();
+
+</script>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-content">
+
+    <div class="footer-left">
+      <h2>NUSANTARA AUTOMOTIVES</h2>
+      <p>Forged from Heritage, Engineered for Speed.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="models.html">Models</a>
+      <a href="Buy.html">Purchase</a>
+      <a href="About.html">About</a>
+    </div>
+
+    <div class="footer-right">
+      <p>© 2026 Nusantara Automotives</p>
+      <p>All rights reserved</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+</body>
+</html>

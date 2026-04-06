@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - Nusantara Automotives</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<div class="top-gradient"></div>
+<body class="about-page">
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+
+  <div class="menu-btn" onclick="openMenu()">☰</div>
+
+  <div class="logo">
+    <span>NUSANTARA AUTOMOTIVES</span>
+  </div>
+
+</header>
+
+<!--Sidebar menu-->
+<div id="sidebar" class="sidebar">
+
+  <span class="close-btn" onclick="closeMenu()">&times;</span>
+
+  <a href="index.html">Home</a>
+  <a href="models.html">Models Overview</a>
+  <a href="Buy.html">Purchase</a>
+  <a href="About.html">About</a>
+
+</div>
+
+<div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+<script>
+function openMenu() {
+  document.getElementById("sidebar").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
+}
+
+function closeMenu() {
+  document.getElementById("sidebar").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
+}
+</script>
+
+<!-- HERO -->
+<section class="about-hero">
+  <h1>ABOUT</h1>
+  <h2>NUSANTARA AUTOMOTIVES</h2>
+</section>
+
+<!-- CONTENT -->
+<section class="about-content">
+
+  <div class="about-text">
+    <p>
+      <strong>Nusantara Automotives</strong> adalah sebuah proyek website fiktif yang dikembangkan sebagai bagian dari tugas Teknologi Informasi dan Komunikasi (TIK). Website ini tidak merepresentasikan perusahaan otomotif nyata, melainkan sebuah konsep yang dirancang untuk mengeksplorasi ide, kreativitas, dan kemampuan dalam pengembangan web.
+    </p>
+
+    <p>
+      Melalui proyek ini, kami membayangkan sebuah masa depan di mana Indonesia mampu merancang, mengembangkan, dan memproduksi kendaraan berperforma tinggi secara mandiri. Nusantara Automotives hadir sebagai representasi dari mimpi tersebut—menggabungkan identitas lokal dengan inovasi teknologi modern dalam industri otomotif.
+    </p>
+
+    <p>
+      Setiap model kendaraan yang ditampilkan dalam website ini dirancang secara konseptual, baik dari segi performa, desain, maupun karakteristiknya. Nama-nama seperti <strong>Garuda</strong>, <strong>Rajawali</strong>, dan <strong>Komodo</strong> dipilih untuk mencerminkan kekuatan, kecepatan, dan kekayaan budaya Indonesia.
+    </p>
+
+    <p>
+      Selain sebagai media presentasi, website ini juga menjadi sarana pembelajaran bagi kami dalam memahami dasar-dasar pengembangan website, termasuk struktur HTML, styling dengan CSS, serta perancangan user interface yang terinspirasi dari brand otomotif dunia.
+    </p>
+
+    <p>
+      Kami menyadari bahwa proyek ini masih jauh dari sempurna. Namun, melalui proses ini, kami belajar bahwa inovasi selalu dimulai dari ide sederhana.
+    </p>
+  </div>
+
+</section>
+
+<!-- TEAM -->
+<section class="team-section">
+
+  <h3>CREATED BY</h3>
+
+  <div class="team-list">
+    <p>Rafael Arkananta Diputra</p>
+    <p>Ananda Osho Manuel</p>
+    <p>Bonaventura Briant Arka Aryasatya</p>
+    <p>Leonardo Galih Novandriano</p>
+    <p>Isaac Dylan Cen</p>
+    <p>Alexander Darren Gunawan</p>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+
+  <div class="footer-content">
+
+    <div class="footer-left">
+      <h2>NUSANTARA AUTOMOTIVES</h2>
+      <p>Forged from Heritage, Engineered for Speed.</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="models.html">Models</a>
+      <a href="Buy.html">Purchase</a>
+      <a href="About.html">About</a>
+    </div>
+
+    <div class="footer-right">
+      <p>© 2026 Nusantara Automotives</p>
+      <p>All rights reserved</p>
+    </div>
+
+  </div>
+
+</footer>
+
+
+</body>
+</html>
